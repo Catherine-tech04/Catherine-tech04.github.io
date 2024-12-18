@@ -1,18 +1,22 @@
 <html>
     <head>
         <script>
-            function show(){
-                document.getElementById("display")=document.getElementById("user").value;
+            function show(event){
+                event.preventDefault();
+                
+                var name=document.getElementById("user").value;
+                var disp="Hello".concat(" "+name+"!");
+                document.getElementById("display").textContent=disp;
             }
         </script>
     </head>
     <body>
         <form>
-            <input type="text" id="user">
-            <input type="password" id="password">
-            <button onclick=show()>Login</button>
+            Username:<input type="text" id="user"><br>
+            Password:<input type="password" id="password"><br>
+            <button onclick="show(event)">Login</button>
         </form>
-        
+
         <p id="display"></p>
     </body>
 </html>
